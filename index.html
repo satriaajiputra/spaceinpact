@@ -10,6 +10,8 @@
 		.container {
 			width:70%;
 			margin:0 auto;
+			position: relative;
+			height: 100%;
 		}
 		#alien1, #alien2, #alien3 {
 			width:100%;
@@ -18,12 +20,17 @@
 			width:50px;
 			height: 40px;
 			overflow: hidden;
-			margin-right:10px;
+			margin:5px;
+		}
+
+		#player {
+			width:65px;
+			height: 40px;
 		}
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="gameArea">
 		<div id="alien1">
 			<canvas class="alien1"></canvas>
 		</div>
@@ -35,50 +42,14 @@
 		<div id="alien3">
 			<canvas class="alien3"></canvas>
 		</div>
+		<canvas id="player"></canvas>
 	</div>
 
 	<script type="text/javascript" src="alien.js"></script>
+	<script type="text/javascript" src="board.js"></script>
+	<script type="text/javascript" src="peluru.js"></script>
 	<script type="text/javascript" src="player.js"></script>
 	<script type="text/javascript" src="game.js"></script>
-	<script>
-		let canvas = document.getElementsByClassName('alien1');
-		let canvas2 = document.getElementsByClassName('alien2');
-		let canvas3 = document.getElementsByClassName('alien3');
-
-		let area = document.getElementById('alien1');
-		let area2 = document.getElementById('alien2');
-		let area3 = document.getElementById('alien3');
-
-		let width = 50;
-		let height = 40;
-		let margin = 10;
-
-		let Enemy1=[], Enemy2 = [], Enemy3 = [];
-		for (let i=0; i<Math.floor(area.offsetWidth/(width+margin))-1; i++) {
-			Enemy1[i] = new Alien(canvas[i],width,height);
-			Enemy1[i].drawObject();
-			if (i==Math.floor(area.offsetWidth/(width+margin))-2) break;
-			let cln = canvas[i].cloneNode(true);
-			area.appendChild(cln);
-		}
-
-		for (let i=0; i<Math.floor(area2.offsetWidth/(width+margin))-1; i++) {
-			Enemy2[i] = new Alien(canvas2[i],width,height);
-			Enemy2[i].setAlien(2);
-			Enemy2[i].drawObject();
-			if (i==Math.floor(area2.offsetWidth/(width+margin))-2) break;
-			let cln = canvas2[i].cloneNode(true);
-			area2.appendChild(cln);
-		}
-
-		for (let i=0; i<Math.floor(area3.offsetWidth/(width+margin)-1); i++) {
-			Enemy3[i] = new Alien(canvas3[i],width,height);
-			Enemy3[i].setAlien(3);
-			Enemy3[i].drawObject();
-			if (i==Math.floor(area3.offsetWidth/(width+margin))-2) break;
-			let cln = canvas3[i].cloneNode(true);
-			area3.appendChild(cln);
-		}		
-	</script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

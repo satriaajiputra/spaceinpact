@@ -7,9 +7,10 @@ class Alien {
 		this.canvas = canvas;
 		this.speed = 300;
 		this.margin = 6; //margin on sprites
-		this.alien = 1;
+		this.alien = 1; //type of alien
 		this.startFrame = 0;
 		this.score = 10;
+		this.space =10
 	}
 
 	setImage(image) {
@@ -18,6 +19,10 @@ class Alien {
 
 	setAlien(alien) {
 		this.alien = alien;
+	}
+
+	setSpace(space) {
+		this.space =space;
 	}
 
 	cekFrame() {
