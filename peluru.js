@@ -17,7 +17,7 @@ class Peluru {
 	}
 
 	setSpeed(speed) {
-		this._speed = speed;
+		this.speed = speed;
 	}
 
 	drawObject() {
@@ -46,8 +46,10 @@ class Peluru {
 	
 		if (typeof enemyList[y] != "undefined" && enemyList[y][x] == 0) {
 			enemyList[y][x] = 1;
-			this.removePeluru();
-			console.log("duarrrrrrrrrr");
+			let yCanvas=y+1, xCanvas = x; 
+			console.log(yCanvas, xCanvas);
+			let canvas = document.getElementsByClassName("alien"+yCanvas)[xCanvas];
+			canvas.style.backgroundImage = "none";			
 			return true;
 		}
 		return false;
@@ -62,8 +64,9 @@ class Peluru {
 		this.removePeluru();
 	}
 	removePeluru() {
-		this.canvas.parentNode.removeChild(this.canvas);
-		clearInterval(this.animate);		
+		clearInterval(this.animate);
+		let elemen = this.canvas;
+		this.canvas.parentNode.removeChild(elemen);	
 	}
 
 }
