@@ -41,11 +41,11 @@ class Peluru {
 		// let elemOffset  = peluru.getBoundingClientRect(),
 		// topElem = document.elementFromPoint(elemOffset.left, elemOffset.top);
 		// mau pake cara index belum selesai
-		let index = {
-			x : Math.floor(peluru.offsetLeft/alien.width+alien.space)-alien.space/2,
-			y : Math.floor(peluru.offsetLeft/alien.height+alien.space)-alien.space/2,
-		}		
-		console.log(index);
+		// let index = {
+		// 	x : Math.floor(peluru.offsetLeft/alien.width+alien.space)-alien.space/2,
+		// 	y : Math.floor(peluru.offsetLeft/alien.height+alien.space)-alien.space/2,
+		// }		
+		// console.log(index);
 		return false;
 	}
 	moveUp() {

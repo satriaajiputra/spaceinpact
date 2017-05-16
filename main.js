@@ -44,3 +44,16 @@ window.onload= function(e) {
 	player1.initMove();
 	console.log(enemyList);
 }
+let x=0;
+setInterval(function () {
+	if (x%2==0) {
+		area.style.left = "30px";
+		area2.style.left = "30px";
+		area3.style.left = "30px";
+	}else{
+		area.style.left = "0px";
+		area2.style.left = "0px";
+		area3.style.left = "0px";
+	}
+	x++;
+},500);
