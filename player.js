@@ -19,7 +19,7 @@ class Player {
 			this.name = config.name;	 
 		}
 		if (typeof config.bg != "undefined") {
-			this.name = config.bg;	 
+			this.bg = config.bg;	 
 		}
 		if (typeof config.position != "undefined") {
 			this.position = config.position;	 
@@ -72,7 +72,6 @@ class Player {
 
 
     initMove() {
-    	'use strict';
     	document.addEventListener('keydown', (event) => {
 		  const keyCode = event.keyCode;
 		  //console.log(keyCode); // use if forget key to see log

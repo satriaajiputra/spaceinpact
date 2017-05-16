@@ -41,11 +41,15 @@ class Peluru {
 		// let elemOffset  = peluru.getBoundingClientRect(),
 		// topElem = document.elementFromPoint(elemOffset.left, elemOffset.top);
 		// mau pake cara index belum selesai
-		// let index = {
-		// 	x : Math.floor(peluru.offsetLeft/alien.width+alien.space)-alien.space/2,
-		// 	y : Math.floor(peluru.offsetLeft/alien.height+alien.space)-alien.space/2,
-		// }		
-		// console.log(index);
+		let	x = Math.floor(peluru.offsetLeft/90),
+			y = Math.floor(peluru.offsetTop/80);
+	
+		if (typeof enemyList[y] != "undefined" && enemyList[y][x] == 0) {
+			enemyList[y][x] = 1;
+			this.removePeluru();
+			console.log("duarrrrrrrrrr");
+			return true;
+		}
 		return false;
 	}
 	moveUp() {
@@ -58,8 +62,8 @@ class Peluru {
 		this.removePeluru();
 	}
 	removePeluru() {
-		clearInterval(this.animate);
 		this.canvas.parentNode.removeChild(this.canvas);
+		clearInterval(this.animate);		
 	}
 
 }

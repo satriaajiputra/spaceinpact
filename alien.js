@@ -10,7 +10,7 @@ class Alien {
 		this.alien = 1; //type of alien
 		this.startFrame = 0;
 		this.score = 10;
-		this.space =10
+		this.space =40 //margin on html (jarak tiap alien di dom)
 	}
 
 	setImage(image) {
@@ -41,7 +41,7 @@ class Alien {
 	{	
 		this.cekFrame();
 		let ctx = this.canvas;
-		let plusX = this.startFrame*(this.width+this.margin);
+		let plusX = this.startFrame*(this.width+this.margin); //untuk menentukan posisi left bg
 		let base = this;
 		let frame = 0;
 		setInterval(function () {

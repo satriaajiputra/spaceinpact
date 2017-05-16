@@ -12,7 +12,7 @@ let alienConfig = {
 	width : 50,
 	height : 40,
 	type : 1,
-	space : 10
+	space : 40
 };
 
 let canvasPeluru = document.getElementById('player');
