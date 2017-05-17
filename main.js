@@ -42,7 +42,6 @@ configPlayer = {
 let player1 = new Player(canvasPlayer, configPlayer, gameArea);
 window.onload= function(e) {
 	player1.initMove();
-	console.log(enemyList);
 }
 let x=0;
 setInterval(function () {

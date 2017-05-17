@@ -50,6 +50,7 @@ class Player {
 	}
 
 	_moveLeft() {
+		let player = this.canvas;
 		if (parseInt(player.style.left) >-10)
 			player.style.left = parseInt(player.style.left) - this._speed + 'px';
 	}

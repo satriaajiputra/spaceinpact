@@ -2,7 +2,7 @@ class Peluru {
 	constructor(config) {
 		this._step = 15;
 		this.position = {top:0, left:0};
-		this.status = 0; //0:off, 1:on
+		this.active = 0; //0:off, 1:on
 		this.speed = 100;
 		if (!!config && typeof config.position != "undefined") {
 			this.position = config.position;	 
@@ -13,7 +13,9 @@ class Peluru {
 		if (!!config && typeof config.area != "undefined") {
 			this.area = config.area;	 
 		}
-		this.drawObject();
+		if (this.active ==0) {
+			this.drawObject();
+		}		
 	}
 
 	setSpeed(speed) {
@@ -40,17 +42,17 @@ class Peluru {
 	cekEnemy(peluru) {
 		// let elemOffset  = peluru.getBoundingClientRect(),
 		// topElem = document.elementFromPoint(elemOffset.left, elemOffset.top);
-		// mau pake cara index belum selesai
 		let	x = Math.floor(peluru.offsetLeft/90),
 			y = Math.floor(peluru.offsetTop/80);
 	
 		if (typeof enemyList[y] != "undefined" && enemyList[y][x] == 0) {
-			enemyList[y][x] = 1;
 			let yCanvas=y+1, xCanvas = x; 
-			console.log(yCanvas, xCanvas);
 			let canvas = document.getElementsByClassName("alien"+yCanvas)[xCanvas];
-			canvas.style.backgroundImage = "none";			
-			return true;
+			if (peluru.offsetLeft < canvas.offsetLeft+canvas.offsetWidth && peluru.offsetLeft+peluru.offsetWidth> canvas.offsetLeft) {
+				canvas.style.backgroundImage = "none";	
+				enemyList[y][x] = 1;		
+				return true;
+			}			
 		}
 		return false;
 	}
