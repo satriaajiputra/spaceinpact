@@ -14,7 +14,8 @@ class Player {
 		this.area = area;
 		this._score = 0;
 		this._speed = 10;
-
+		this.isShoot = 0;
+		this.scoreArea = document.getElementById("score");
 		if (typeof config.name != "undefined") {
 			this.name = config.name;	 
 		}
@@ -33,11 +34,20 @@ class Player {
 		if (typeof config.speed != "undefined") {
 			this._speed = config.speed;	 
 		}
+		if (typeof config.scoreArea != "undefined") {
+			this.scoreArea = config.scoreArea;	 
+		}
 		this._drawplayer();
 	}	
 
 	getScore() {
 		return this._score;
+	}
+	showScore() {
+		return this.scoreArea.innerHTML = this._score;
+	}
+	addScore() {
+		this._score +=10;	
 	}
 
 	_drawplayer() {
@@ -66,9 +76,11 @@ class Player {
 				"top" : this.area.offsetHeight-(parseInt(player.style.bottom)+player.offsetHeight)+"px",
 				"left" : parseInt(player.style.left)+10+player.offsetHeight/2+"px"
 			},
-			"area" : this.area
+			"area" : this.area,
+			player : this,
 		}
-		let peluru = new Peluru(config);
+		let peluru = new Peluru(config, this.isShoot);
+		this.isShoot = 1;
 	}
 
 

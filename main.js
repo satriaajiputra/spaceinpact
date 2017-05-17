@@ -46,9 +46,9 @@ window.onload= function(e) {
 let x=0;
 setInterval(function () {
 	if (x%2==0) {
-		area.style.left = "30px";
-		area2.style.left = "30px";
-		area3.style.left = "30px";
+		area.style.left = "30";
+		area2.style.left = "30";
+		area3.style.left = "30";
 	}else{
 		area.style.left = "0px";
 		area2.style.left = "0px";

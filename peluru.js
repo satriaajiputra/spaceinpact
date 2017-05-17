@@ -1,9 +1,10 @@
 class Peluru {
-	constructor(config) {
+	constructor(config, isAktif) {
 		this._step = 15;
 		this.position = {top:0, left:0};
-		this.active = 0; //0:off, 1:on
 		this.speed = 100;
+		this.player = config.player;
+		this.active = isAktif;
 		if (!!config && typeof config.position != "undefined") {
 			this.position = config.position;	 
 		}
@@ -50,7 +51,9 @@ class Peluru {
 			let canvas = document.getElementsByClassName("alien"+yCanvas)[xCanvas];
 			if (peluru.offsetLeft < canvas.offsetLeft+canvas.offsetWidth && peluru.offsetLeft+peluru.offsetWidth> canvas.offsetLeft) {
 				canvas.style.backgroundImage = "none";	
-				enemyList[y][x] = 1;		
+				enemyList[y][x] = 1;
+				this.player.addScore();
+				this.player.showScore();
 				return true;
 			}			
 		}
@@ -69,6 +72,7 @@ class Peluru {
 		clearInterval(this.animate);
 		let elemen = this.canvas;
 		this.canvas.parentNode.removeChild(elemen);	
+		this.player.isShoot = 0;
 	}
 
 }
